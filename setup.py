@@ -7,10 +7,19 @@ README = open(os.path.join(here, 'README.md')).read()
 CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
 requires = [
-    'pyramid',
-    'pyramid_debugtoolbar',
-    'waitress',
+        'pyramid<1.4.99',
+        'pyramid_debugtoolbar',
+        'SQLAlchemy',
+        'transaction',
+        'pyramid_tm',
+        'pyramid_mailer',
+        'zope.sqlalchemy',
+        'waitress',
+        'docutils',
+        'WebTest',
+        'passlib',
     ]
+
 
 setup(name='plan2fab',
       version='0.0',
