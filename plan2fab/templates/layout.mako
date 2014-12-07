@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <title>Plan 2 Fab - Documentation de projet de fabricaqtion</title>
+  <title>Plan 2 Fab - Documentation de projet de fabrication</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="${request.static_url('plan2fab:static/style.css')}" type="text/css" media="screen" />
   <!--[if lte IE 6]>
