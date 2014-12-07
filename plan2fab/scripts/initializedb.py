@@ -11,23 +11,16 @@ from pyramid.paster import (
     setup_logging,
     )
 
-from ..models import (
+from plan2fab.models import (
     DBSession,
     Project,
     Base,
     )
 
-
-def parse_command_line(args):
-    parser = argparse.ArgumentParser()
-    parser.add_argument("config", help="configuration file (e.g. production.ini)")
-    return parser.parse_args(args)
-
-
 def main(argv=sys.argv):
-    args = parse_command_line(argv[1:])
-    setup_logging(args.config)
-    settings = get_appsettings(args.config)
+    config = argv[1]
+    setup_logging(config)
+    settings = get_appsettings(config)
     engine = engine_from_config(settings, 'sqlalchemy.')
     DBSession.configure(bind=engine)
     Base.metadata.create_all(engine)

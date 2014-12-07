@@ -59,5 +59,5 @@ class Project(Base):
     updated_at = Column(TIMESTAMP)
 
     def __init__(self, name):
-        self.name = namE
+        self.name = name
 
