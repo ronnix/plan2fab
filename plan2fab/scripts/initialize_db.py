@@ -18,6 +18,7 @@ from plan2fab.models import (
     )
 
 def main(argv=sys.argv):
+    print "innnnnn3"
     config = argv[1]
     setup_logging(config)
     settings = get_appsettings(config)
