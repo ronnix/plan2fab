@@ -41,7 +41,7 @@ setup(
     test_suite="plan2fab",
     entry_points="""\
     [paste.app_factory]
-    main = plan2fab:main
+    main = plan2fab:make_app
     [console_scripts]
     initialize_plan2fab_db = plan2fab.scripts.initialize_db:main
     """,

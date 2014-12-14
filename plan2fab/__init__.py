@@ -1,8 +1,15 @@
 from pyramid.config import Configurator
 from pyramid.session import SignedCookieSessionFactory
 
+from plan2fab.models import Base, DBSession
 
-def main(global_config, **settings):
+
+def configure_db(engine):
+    DBSession.configure(bind=engine)
+    Base.metadata.bind = engine
+
+
+def make_app(global_config, **settings):
     """ This function returns a Pyramid WSGI application.
     """
 

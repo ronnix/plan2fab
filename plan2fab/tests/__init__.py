@@ -1,10 +1,7 @@
 from cookielib import CookieJar
 
-from tempfile import mkdtemp
-
 import unittest
 
-from passlib.hash import sha256_crypt
 from pyramid import testing
 from sqlalchemy import create_engine
 from webtest import TestApp
@@ -16,15 +13,13 @@ class BaseTestCase(unittest.TestCase):
         from plan2fab import make_app, configure_db
         from plan2fab.models import Base, DBSession
 
-        self.tmpdir = mkdtemp()
-
         settings = {
-            'sqlalchemy.url': 'postgresql://',
+            'sqlalchemy.url': 'sqlite://',
             'mako.directories': 'plan2fab:templates',
-            'app.reports_directory': self.tmpdir
+            'session_secret': 'notsosecret',
         }
 
-        engine = create_engine('postgresql://')
+        engine = create_engine('sqlite://')
         configure_db(engine)
         Base.metadata.create_all(engine)
         self.session = DBSession
@@ -39,4 +34,3 @@ class BaseTestCase(unittest.TestCase):
         del self.testapp
         from plan2fab.models import DBSession
         DBSession.remove()
-
